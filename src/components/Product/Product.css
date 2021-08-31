@@ -1,0 +1,11 @@
+.product{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.product__picPhoto{
+    width: 200px;
+}

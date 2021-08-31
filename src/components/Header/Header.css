@@ -1,0 +1,14 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 40px;
+    border-bottom: 2px solid black;
+}
+.header__options{
+    display: flex;
+}
+.header__option{
+    cursor: pointer;
+    width: 100px;
+    text-align: center;
+}
