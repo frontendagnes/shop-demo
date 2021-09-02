@@ -6,6 +6,9 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { login, logout, selectUser } from "../../features/user/userSlice";
 import { selectBasket } from "../../features/basket/baksetSlice";
+// import logo from '../../assets/logo.png'
+import logoLight from "../../assets/logo-white.png";
+import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 function Header() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
@@ -20,21 +23,28 @@ function Header() {
   };
   return (
     <div className="header">
-      <Link to="/">
-        <div className="header__logo"> LOGO </div>
-      </Link>
-      <div className="header__options">
-        <div className="header__option">Hello, {user ? user : "Guest"}</div>
-        <Link to="/checkout">
-          <div className="header__option">
-            Basket <span>({basket.length})</span>
-          </div>
+      <div className="header__container">
+        <Link to="/">
+          <img src={logoLight} alt="LOGO" className="header__logo" />
         </Link>
-        <div
-          className="header__option"
-          onClick={user ? onHandleLogout : onHandleLogin}
-        >
-          {user ? "Logout" : "Login"}
+        <div className="header__options">
+          <div
+            className="header__option"
+            onClick={user ? onHandleLogout : onHandleLogin}
+          >
+            <small className="header__optionOne">
+              Hello, {user ? user : "Guest"}
+            </small>
+            <span className="header__optionTwo">
+              {user ? "Logout" : "Login"}
+            </span>
+          </div>
+          <Link to="/checkout">
+            <div className="header__option">
+              <ShoppingBasketIcon fontSize="large" />{" "}
+              <span className="header__basket">{basket.length}</span>
+            </div>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,0 +1,28 @@
+.checkoutProduct{
+    display: flex;
+    align-items: center;
+    margin-bottom:10px;
+    background-color: #ffffff;
+    padding: 20px 30px;
+}
+
+.checkoutProduct__picPhoto{
+    width: 150px;
+    max-height: 200px;
+}
+.checkoutProduct__bottom{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-left: 20px;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.checkoutProduct__title{
+    width: 50%;
+}
+.checkoutProduct__button{
+    height: 50px;
+}

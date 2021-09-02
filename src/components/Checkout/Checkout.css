@@ -1,0 +1,8 @@
+.checkout > h2{
+    text-align: center;
+    font-size: 2rem;
+    margin: 20px;
+}
+.chekout__products{
+    margin-top: -10px;
+}

@@ -1,0 +1,13 @@
+.summary{
+    background-color: #ffffff;
+    padding: 20px 30px;
+    width: 30%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.summary > div{
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
