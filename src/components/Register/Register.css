@@ -1,0 +1,42 @@
+.register{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.register__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #ffffff;
+    padding: 30px 30px;
+    border-radius: 10px;
+}
+.register__top{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.register__top > span{
+    font-size:  3rem;
+    font-weight: 600;
+}
+.register__image{
+    width: 200px;
+    margin-bottom: 10px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.register__input{
+    margin-bottom: 10px !important;
+    margin-left: 5px !important;
+    background-color: #fafafafa;
+    width: 150%;
+}

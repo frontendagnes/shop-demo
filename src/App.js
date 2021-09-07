@@ -7,15 +7,23 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Feed from "./components/Feed/Feed";
 import Checkout from "./components/Checkout/Checkout";
+import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
+import Paymant from "./components/Payment/Payment";
 function App() {
   return (
     <div className="app">
       <Router>
         <Header />
         <Switch>
-        <Route path="/login">
+          <Route path="/payment">
+            <Paymant />
+          </Route>
+          <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/register">
+            <Register />
           </Route>
           <Route path="/checkout">
             <Checkout />

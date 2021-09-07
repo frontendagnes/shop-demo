@@ -1,0 +1,39 @@
+.payment__heading{
+    padding: 20px 30px;
+    border-bottom: 2px solid #fafafafa;
+}
+h1{
+    text-align: center;
+}
+
+.payment__section{
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    padding: 20px 30px;
+    border-bottom: 2px solid #fafafafa;
+}
+
+.payment__title{
+    margin-right: 15px;
+}
+.payment__adress > p {
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+.payment__input{
+    border-radius: 5px !important;
+}
+.payment__section > button{
+    margin-left: 20px;
+}
+.payment__items{
+    width: 100%;
+}
+.payment__summary{
+    width: 100%;
+    font-size: 2rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+}

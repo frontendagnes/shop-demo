@@ -1,5 +1,12 @@
 body{
   background-color: #eaeded;
+  height: 100%;
+}
+.app{
+  height: 100%;
+}
+#root{
+  height: 100%;
 }
 a{
   text-decoration: none;

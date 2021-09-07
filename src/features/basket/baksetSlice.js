@@ -1,26 +1,27 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    contents: [
-        {
-            id: "123",
-            title: "Camera",
-            picphoto: "https://images-na.ssl-images-amazon.com/images/I/71EzZHveM-L._AC_SL1500_.jpg",
-            price: 150
-        },        
-        {
-            id: "124",
-            title: "Coffy",
-            picphoto: "https://images-na.ssl-images-amazon.com/images/I/51eqU4jOrLL._AC_SL1199_.jpg",
-            price: 50
-        },
-        {
-            id: "125",
-            title: "Sound",
-            picphoto: "https://images-na.ssl-images-amazon.com/images/I/71ITEaodrZL._AC_SL1500_.jpg",
-            price: 100
-        }
-    ]
+    contents: []
+    // contents: [
+    //     {
+    //         id: "123",
+    //         title: "Camera",
+    //         picphoto: "https://images-na.ssl-images-amazon.com/images/I/71EzZHveM-L._AC_SL1500_.jpg",
+    //         price: 150
+    //     },        
+    //     {
+    //         id: "124",
+    //         title: "Coffy",
+    //         picphoto: "https://images-na.ssl-images-amazon.com/images/I/51eqU4jOrLL._AC_SL1199_.jpg",
+    //         price: 50
+    //     },
+    //     {
+    //         id: "125",
+    //         title: "Sound",
+    //         picphoto: "https://images-na.ssl-images-amazon.com/images/I/71ITEaodrZL._AC_SL1500_.jpg",
+    //         price: 100
+    //     }
+    // ]
 }
 
 export const basketSlice = createSlice({
@@ -42,12 +43,14 @@ export const basketSlice = createSlice({
                 ...state.contents,
                 contents: newContents
             }
-
+        },
+        emptyBasket: (state) => {
+            state.contents = []
         }
     }
 })
 
-export const { addToBasket, removeFromBasket } = basketSlice.actions
+export const { addToBasket, removeFromBasket, emptyBasket } = basketSlice.actions
 
 export const selectBasket = (state) => state.basket.contents
 
