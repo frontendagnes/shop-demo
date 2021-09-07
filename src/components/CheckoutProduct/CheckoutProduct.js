@@ -1,9 +1,10 @@
 import React from "react";
 import "./CheckoutProduct.css";
 import { useDispatch } from "react-redux";
-import { removeFromBasket } from "../../features/basket/baksetSlice";
+import { removeFromBasket} from "../../features/basket/baksetSlice";
 function CheckoutProduct({ id, title, picphoto, price, isCheckout }) {
     const dispatch = useDispatch()
+    
 
     const onHandleRemoveFromBasket = () =>{
         dispatch(removeFromBasket(id))
@@ -22,7 +23,6 @@ function CheckoutProduct({ id, title, picphoto, price, isCheckout }) {
         {!isCheckout &&
         <button className="checkoutProduct__button" onClick={onHandleRemoveFromBasket}>Remove From Basket</button>
         }
-        
       </div>
     </div>
   );

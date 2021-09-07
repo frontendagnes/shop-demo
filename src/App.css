@@ -26,3 +26,9 @@ button{
 button:hover{
   color: #808080;
 }
+button:disabled{
+  background-color:#808080 ;
+}
+button:disabled:hover{
+  color: #eaeded
+}

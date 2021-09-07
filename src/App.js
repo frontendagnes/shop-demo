@@ -10,12 +10,16 @@ import Checkout from "./components/Checkout/Checkout";
 import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import Paymant from "./components/Payment/Payment";
+import Orders from "./components/Orders/Orders";
 function App() {
   return (
     <div className="app">
       <Router>
         <Header />
         <Switch>
+        <Route path="/orders">
+            <Orders />
+          </Route>
           <Route path="/payment">
             <Paymant />
           </Route>

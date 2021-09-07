@@ -39,11 +39,13 @@ function Header() {
               {user ? "Logout" : <Link to="/login" >Login</Link>}
             </span>
           </div>
+          <Link to="/orders">
           {user && 
           <div className="header__option">
             <small>Your orders</small>
           </div>
           }
+          </Link>
           <Link to="/checkout">
             <div className="header__option">
               <ShoppingBasketIcon fontSize="large" />

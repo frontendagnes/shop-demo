@@ -44,6 +44,10 @@ function Paymant() {
   };
   const onHandleOrder = (e) => {
     e.preventDefault()
+    if(!deliveryAdress){
+      alert("Confirm the address")
+      return
+    }
     db.collection("users")
       .doc(user?.uid)
       .collection("orders")
@@ -67,9 +71,9 @@ function Paymant() {
           <h3>Adress:</h3>
         </div>
         <div className="payment__adress">
-          <p>{user?.displayName}</p>
-          <p>{user?.email}</p>
-          <p>
+          <div>{user?.displayName}</div>
+          <div>{user?.email}</div>
+          <div>
             {deliveryAdress ? (
               <span>{street}</span>
             ) : (
@@ -82,8 +86,8 @@ function Paymant() {
                 onChange={(e) => setStreet(e.target.value)}
               />
             )}
-          </p>
-          <p>
+          </div>
+          <div>
             {deliveryAdress ? (
               <span>{town}</span>
             ) : (
@@ -96,7 +100,7 @@ function Paymant() {
                 onChange={(e) => setTown(e.target.value)}
               />
             )}
-          </p>
+          </div>
         </div>
         {!deliveryAdress && (
           <button onClick={onHandleSaveAdress}>Save Adress</button>
@@ -127,7 +131,7 @@ function Paymant() {
         </div>
         <div className="payment__summary">
           <span>Summary {getBasketTotal(basket)} PLN</span>
-          <button onClick={onHandleOrder}>Buy now</button>
+          <button onClick={onHandleOrder} disabled={basket.length === 0 || !user ? true : false}>Buy now</button>
         </div>
       </div>
     </div>
