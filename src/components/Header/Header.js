@@ -3,22 +3,22 @@ import "./Header.css";
 
 import { Link } from "react-router-dom";
 
-import { useSelector, useDispatch } from "react-redux";
-import { login, logout, selectUser } from "../../features/user/userSlice";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../features/user/userSlice";
 import { selectBasket } from "../../features/basket/baksetSlice";
 import logoLight from "../../assets/logo-white.png";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 
+import { auth } from "../../app/utility/firebase"
+
 function Header() {
   const user = useSelector(selectUser);
-  const dispatch = useDispatch();
   const basket = useSelector(selectBasket);
 
-  const onHandleLogin = () => {
-    dispatch(login());
-  };
   const onHandleLogout = () => {
-    dispatch(logout());
+    if(user){
+      auth.signOut();
+    }
   };
 
   return (
@@ -30,7 +30,7 @@ function Header() {
         <div className="header__options">
           <div
             className="header__option"
-            onClick={user ? onHandleLogout : onHandleLogin}
+            onClick={user && onHandleLogout}
           >
             <small className="header__optionOne">
               Hello, {user ? user.displayName : "Guest"}

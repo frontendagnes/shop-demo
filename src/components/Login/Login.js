@@ -7,8 +7,6 @@ import ValidationError from "../ValidationError/ValidationError";
 import { Link, useHistory } from "react-router-dom";
 import { auth } from "../../app/utility/firebase";
 
-import { useDispatch } from "react-redux";
-import { login } from "../../features/user/userSlice";
 import { validateLogin } from '../../app/utility/Validations'
 
 
@@ -19,9 +17,7 @@ function Login() {
 
   const [error, setError] = useState(null);
 
-  const dispatch = useDispatch();
-
-  const history = useHistory();
+ const history = useHistory();
 
   const onHandleSignIn = (e) => {
     e.preventDefault();
@@ -34,9 +30,6 @@ function Login() {
 
     auth
       .signInWithEmailAndPassword(email, password)
-      .then((result) => {
-        dispatch(login(result.user));
-      })
       .then(() => history.push("/"))
       .catch((error) => alert(error.message));
   };

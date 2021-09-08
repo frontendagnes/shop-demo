@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { auth } from "./app/utility/firebase";
+import { login, logout } from "./features/user/userSlice";
+import { useDispatch } from "react-redux";
 
 //components
 import Header from "./components/Header/Header";
@@ -12,12 +15,24 @@ import Login from "./components/Login/Login";
 import Paymant from "./components/Payment/Payment";
 import Orders from "./components/Orders/Orders";
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        dispatch(login(authUser));
+      } else {
+        dispatch(logout());
+      }
+    });
+  }, [dispatch]);
+
   return (
     <div className="app">
       <Router>
         <Header />
         <Switch>
-        <Route path="/orders">
+          <Route path="/orders">
             <Orders />
           </Route>
           <Route path="/payment">
