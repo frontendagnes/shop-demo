@@ -1,35 +1,29 @@
 import React from "react";
 import "./Order.css";
 import moment from "moment";
-
-import CheckoutProduct from "../CheckoutProduct/CheckoutProduct";
+import { Link } from "react-router-dom";
 
 function Order({ order }) {
   let date = new Date();
   let year = date.getFullYear();
-  return (
-    <div className="order">
-      <div className="order__top">
-        <span><span className="order__idNumber">{order.id}</span></span>
-        <span>Created: <small>{moment.unix(order.data.created).format(`MMMM Do ${year} h:mma`) }</small></span>
-      </div>
 
-      <div className="order__middle">
-        {order.data?.basket.map((item, index) => (
-          <CheckoutProduct
-            key={index}
-            id={item.id}
-            title={item.title}
-            picphoto={item.picphoto}
-            price={item.price}
-            isCheckout
-          />
-        ))}
+  return (
+    <li className="order">
+      <div className="order__top">
+        <Link to={`/order-details/${order.id}`}>
+          <span className="order__idNumber">{order.id}</span>
+        </Link>
+        <span>
+          <span>Created:</span>
+          <small>
+            {moment.unix(order.data.created).format(`MMMM Do ${year} h:mma`)}
+          </small>
+        </span>
       </div>
       <div className="order__bottom">
-          <span>Summary: {order.data.amount}</span>
+        <span>Summary: {order.data.amount}</span>
       </div>
-    </div>
+    </li>
   );
 }
 

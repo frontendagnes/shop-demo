@@ -1,32 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./Orders.css";
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 import Order from "../Order/Order";
-import db from "../../app/utility/firebase";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../features/user/userSlice";
-
-function Orders() {
+function Orders({ orders }) {
   const user = useSelector(selectUser);
 
-  const [orders, setOrders] = useState([]);
-
-  useEffect(() => {
-    if (user) {
-      db.collection("users")
-        .doc(user.uid)
-        .collection("orders")
-        .orderBy("created", "desc")
-        .onSnapshot((snapshot) => {
-          setOrders(
-            snapshot.docs.map((doc) => ({
-              id: doc.id,
-              data: doc.data(),
-            }))
-          );
-        });
-    } else setOrders([]);
-  }, [user]);
   return (
     <div className="orders">
       <div className="orders__top">
@@ -36,10 +16,11 @@ function Orders() {
           <ArrowDownwardIcon fontSize="large" color="secondary" />
         </h2>
       </div>
-
-      {orders?.map((order) => (
-        <Order key={order.id} order={order} />
-      ))}
+      <ul>
+        {orders?.map((order) => (
+          <Order key={order.id} order={order} />
+        ))}
+      </ul>
     </div>
   );
 }

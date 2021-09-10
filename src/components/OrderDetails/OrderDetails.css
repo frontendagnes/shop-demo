@@ -1,16 +1,22 @@
-.order{
+.orderDetails{
     margin-top: 20px;
     margin-bottom: 20px;
     padding: 10px 20px;
     background-color: #fafafafa;
 }
-.order__top{
+.orderDetails > h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+ .orderDetails__top{
     display: flex;
+
     justify-content: space-between;
     align-items: center;
 }
 
-.order__top > span{
+.orderDetails__top > span{
     margin: 10px;
     font-size: 1.5rem;
     font-weight: 600;
@@ -20,17 +26,23 @@
     justify-content: space-between;
     align-items: center;
 }
-.order__idNumber{
+.orderDetails__idNumber{
     font-size: 2rem;
 }
-.order__top > small{
+.orderDetails__top > small{
     font-weight: 600;
 }
-.order__bottom{
+.orderDetails__bottom{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
-.order__bottom > span {
-    font-size:2.5rem;
+.orderDetails__adressDelivery{
+    margin-bottom: 20px;
+}
+.orderDetails__adressDelivery > p{
+    font-size: 1.2rem;
+}
+.orderDetails__summary {
+    font-size:3rem;
     font-weight: 600;
 }

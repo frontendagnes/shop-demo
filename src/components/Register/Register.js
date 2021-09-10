@@ -57,6 +57,7 @@ function Register() {
             id="outlined-basic"
             label="enter your first and last name"
             variant="outlined"
+            autoComplete = "off"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
@@ -65,6 +66,7 @@ function Register() {
             id="outlined-basic"
             label="enter your email"
             variant="outlined"
+            autoComplete = "off"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -74,6 +76,7 @@ function Register() {
             label="enter password"
             variant="outlined"
             type="password"
+            autoComplete = "off"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -81,6 +84,7 @@ function Register() {
             className="age"
             name="age"
             type="number"
+            autoComplete = "off"
             value={test}
             onChange={(e) => setTest(e.target.value)}
           />

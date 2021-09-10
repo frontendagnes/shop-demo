@@ -64,6 +64,7 @@ function Login() {
               className="age"
               name="age"
               type="number"
+              autoComplete = "off"
               value={test}
               onChange={(e) => setTest(e.target.value)}
             />
