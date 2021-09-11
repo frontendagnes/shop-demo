@@ -1,5 +1,5 @@
 .checkout{
-    height: 100%;
+    min-height: 100%;
 }
 .checkout__top{
     text-align: center;
