@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import moment from "moment";
 import CheckoutProduct from "../CheckoutProduct/CheckoutProduct";
 function OrderDetails({ orders }) {
-  let { id } = useParams();
+  let { orderId } = useParams();
 
   let date = new Date();
   let year = date.getFullYear();
@@ -12,7 +12,7 @@ function OrderDetails({ orders }) {
     <div className="orderDetails">
       <h2>Order preview</h2>
       {orders
-        .filter((item) => item.id === id)
+        .filter((item) => item.id === orderId)
         .map((item) => (
           <div className="orderDetails__container">
             <div className="orderDetails__top">
@@ -40,15 +40,16 @@ function OrderDetails({ orders }) {
               ))}
             </div>
             <div className="orderDetails__bottom">
-            <span className="orderDetails__adressDelivery">
-                <h5>Your adress delivery:</h5>             
+              <div className="orderDetails__adressDelivery">
+                <h5>Delivery address for this order:</h5>
                 <p>{item.data.user?.name}</p>
                 <p>{item.data.user?.street}</p>
                 <p>{item.data.user?.town}</p>
                 <p>{item.data.user?.email}</p>
-              </span>
-              <span className="orderDetails__summary">Summary: {item.data.amount}</span>
-
+              </div>
+              <div className="orderDetails__summary">
+                Summary: {item.data.amount}
+              </div>
             </div>
           </div>
         ))}

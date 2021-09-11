@@ -15,11 +15,13 @@ import Login from "./components/Login/Login";
 import Paymant from "./components/Payment/Payment";
 import Orders from "./components/Orders/Orders";
 import OrderDetails from "./components/OrderDetails/OrderDetails";
+import NoMatch from "./components/NoMatch/NoMatch";
+import Footer from "./components/Footer/Footer";
 function App() {
   const [orders, setOrders] = useState([]);
 
   const dispatch = useDispatch();
-  const user = useSelector(selectUser)
+  const user = useSelector(selectUser);
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
       if (authUser) {
@@ -45,33 +47,47 @@ function App() {
           );
         });
     } else setOrders([]);
-  }, [user])
+  }, [user]);
 
   return (
     <div className="app">
       <Router>
-        <Header />
         <Switch>
-          <Route path="/orders">
-            <Orders orders={orders}/>
+          <Route exact path="/orders">
+            <Header />
+            <Orders orders={orders} />
+            <Footer />
           </Route>
-          <Route path="/order-details/:id">
-            <OrderDetails orders={orders}/>
+          <Route exact path="/order-details/:orderId">
+            <Header />
+            <OrderDetails orders={orders} />
+            <Footer />
           </Route>
-          <Route path="/payment">
+          <Route exact path="/payment">
+            <Header />
             <Paymant />
+            <Footer />
           </Route>
-          <Route path="/login">
+          <Route exact path="/login">
             <Login />
           </Route>
-          <Route path="/register">
+          <Route exact path="/register">
             <Register />
           </Route>
-          <Route path="/checkout">
+          <Route exact path="/checkout">
+            <Header />
             <Checkout />
+            <Footer />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
+            <Header />
             <Feed />
+            <Footer />
+          </Route>
+          <Route>
+            <Header />
+            <NoMatch />
+            <Footer />
           </Route>
         </Switch>
       </Router>

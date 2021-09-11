@@ -10,11 +10,11 @@ function Orders({ orders }) {
   return (
     <div className="orders">
       <div className="orders__top">
-        <h3>Hello, {user?.displayName}</h3>
-        <h2>
-          Your orders are listed below
-          <ArrowDownwardIcon fontSize="large" color="secondary" />
-        </h2>
+      <h3>Hello, {user?.displayName}</h3>
+          <h2>
+            Your orders are listed below
+            <ArrowDownwardIcon fontSize="large" color="secondary" />
+          </h2>
       </div>
       <ul>
         {orders?.map((order) => (

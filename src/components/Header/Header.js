@@ -24,9 +24,11 @@ function Header() {
   return (
     <div className="header">
       <div className="header__container">
+        <div className="header__image">
         <Link to="/">
           <img src={logoLight} alt="LOGO" className="header__logo" />
         </Link>
+        </div>
         <div className="header__options">
           <div
             className="header__option"

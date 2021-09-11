@@ -14,17 +14,15 @@
     margin: 10px;
     font-size: 1.5rem;
     font-weight: 600;
-    width: 30%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
+    border-bottom:  1px solid grey;
+    padding-bottom: 10px;
 }
 .order__idNumber{
     font-size: 2rem;
-}
-.order__top > small{
-    font-weight: 600;
 }
 .order__bottom{
     display: flex;
@@ -33,4 +31,5 @@
 .order__bottom > span {
     font-size:2.5rem;
     font-weight: 600;
+    
 }

@@ -14,10 +14,7 @@ function Order({ order }) {
           <span className="order__idNumber">{order.id}</span>
         </Link>
         <span>
-          <span>Created:</span>
-          <small>
             {moment.unix(order.data.created).format(`MMMM Do ${year} h:mma`)}
-          </small>
         </span>
       </div>
       <div className="order__bottom">

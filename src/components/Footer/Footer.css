@@ -1,0 +1,17 @@
+.footer{
+    background-color: #131921; 
+    color: #ffffff;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer__left > img{
+    width: 100px;
+}
+
+.footer__right{
+    font-weight: 600;
+    font-size: 1.5rem;
+}

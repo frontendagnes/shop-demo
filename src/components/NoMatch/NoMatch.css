@@ -1,0 +1,16 @@
+.noMatch{
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    font-weight: 600;
+    font-size: 3rem;
+}
+
+.noMatch__top > span{
+    margin-left: 15px;
+    margin-right: 15px;
+    color: #ff0000;
+}

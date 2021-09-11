@@ -7,11 +7,12 @@
     top: 0;
     z-index: 2;
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
     justify-content: space-between;
     align-items: center;
     padding: 20px 30px;
-   background-color: #131921;
+    background-color: #131921;
     color: #ffffff;
 }
 .header__logo{
@@ -23,6 +24,7 @@
 .header__option{
     position: relative;
     display: flex;
+    flex-wrap: wrap;
     flex-flow: column wrap;
     cursor: pointer;
     width: 150px;
@@ -48,4 +50,16 @@
     height: 25px;
     font-weight: 600;
     font-size: 1rem;
+}
+
+@media screen and (max-width: 560px){
+    .header__container{
+        justify-content: center;
+        align-items: center;
+    }
+    .header__image{
+        width: 100%;
+        justify-self: flex-start;
+    }
+
 }

@@ -37,3 +37,17 @@ h1{
     display: flex;
     justify-content: space-between;
 }
+
+@media screen and (max-width: 650px)  {
+    .payment__title{
+        padding: 10px 20px;
+    }
+    .payment__section{
+        padding: 0;
+    }
+}
+@media screen and (max-width: 560px)  {
+    .payment__heading{
+        padding-top: 80px;
+    }
+}

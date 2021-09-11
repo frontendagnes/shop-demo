@@ -1,7 +1,6 @@
 .orders {
     padding-top: 40px;
 }
-
 .orders__top {
     padding-left: 20px;
     padding-bottom: 10px;
@@ -11,9 +10,16 @@
 
 .orders__top>h2 {
     display: flex;
-    align-items: center;
+    align-items: center;  
 }
 
 .orders ul {
     list-style-type: none;
+}
+
+@media screen and (max-width: 560px){
+    .orders{
+        padding-top: 80px;
+    }
+
 }

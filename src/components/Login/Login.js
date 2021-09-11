@@ -7,8 +7,7 @@ import ValidationError from "../ValidationError/ValidationError";
 import { Link, useHistory } from "react-router-dom";
 import { auth } from "../../app/utility/firebase";
 
-import { validateLogin } from '../../app/utility/Validations'
-
+import { validateLogin } from "../../app/utility/Validations";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -17,7 +16,7 @@ function Login() {
 
   const [error, setError] = useState(null);
 
- const history = useHistory();
+  const history = useHistory();
 
   const onHandleSignIn = (e) => {
     e.preventDefault();
@@ -39,7 +38,9 @@ function Login() {
         {error && <ValidationError text={error} />}
         <div className="login__top">
           <span>Log In</span>
-          <img className="login__image" src={logoDark} alt="" />
+          <Link to="/">
+            <img className="login__image" src={logoDark} alt="" />
+          </Link>
         </div>
         <div className="login__bottom">
           <form>
@@ -64,7 +65,7 @@ function Login() {
               className="age"
               name="age"
               type="number"
-              autoComplete = "off"
+              autoComplete="off"
               value={test}
               onChange={(e) => setTest(e.target.value)}
             />

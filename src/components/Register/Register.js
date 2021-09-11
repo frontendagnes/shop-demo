@@ -49,7 +49,9 @@ function Register() {
         {error && <ValidationError text={error} />}
         <div className="register__top">
           <span>Register</span>
-          <img className="register__image" src={logoDark} alt="" />
+          <Link to="/">
+            <img className="register__image" src={logoDark} alt="" />
+          </Link>
         </div>
         <form className="register__form">
           <TextField
@@ -57,7 +59,7 @@ function Register() {
             id="outlined-basic"
             label="enter your first and last name"
             variant="outlined"
-            autoComplete = "off"
+            autoComplete="off"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
@@ -66,7 +68,7 @@ function Register() {
             id="outlined-basic"
             label="enter your email"
             variant="outlined"
-            autoComplete = "off"
+            autoComplete="off"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -76,7 +78,7 @@ function Register() {
             label="enter password"
             variant="outlined"
             type="password"
-            autoComplete = "off"
+            autoComplete="off"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -84,7 +86,7 @@ function Register() {
             className="age"
             name="age"
             type="number"
-            autoComplete = "off"
+            autoComplete="off"
             value={test}
             onChange={(e) => setTest(e.target.value)}
           />

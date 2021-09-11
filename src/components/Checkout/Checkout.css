@@ -1,3 +1,6 @@
+.checkout{
+    height: 100%;
+}
 .checkout__top{
     text-align: center;
     font-size: 1.2rem;
@@ -5,4 +8,10 @@
 }
 .chekout__products{
     margin-top: -10px;
+}
+
+@media screen and (max-width: 560px){
+    .checkout__top{
+        margin-top: 80px;
+    }
 }
