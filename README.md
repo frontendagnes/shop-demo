@@ -8,7 +8,7 @@ pass: administrator
 ## Documentation
 Projekt został stworzone przez [create-react-app](https://github.com/facebook/create-react-app), w aplikacji zostały użyte następujące rozwiązania:
 
-* [firebase](https://www.npmjs.com/package/firebase) - baza danych (proszę o podłączenie własnej bazy danych)
+* [firebase](https://www.npmjs.com/package/firebase) - baza danych (logowanie, przechowywanie zamówień, deploy)
 * [redux](https://react-redux.js.org/) - przechowywanie stanu aplikacji
 * [material-ui](https://material-ui.com/) - grafiki w aplikacji
 * [moment](https://momentjs.com/) - tworzenie czasu
@@ -42,7 +42,7 @@ Wszystkie pozostałe niezbędne informację znajdują się tutaj: [create-react-
 ## Contribute
 * Source Code: https://github.com/zabula81/shop-demo
 * Issue Tracker: https://github.com/zabula81/shop-demo/issues
-* View: 
+* View: https://shop-a251f.web.app/
 
 ## Author
 Agnieszka Kamińska (agnieszka.kaminska@ksiegarnia.edu.pl)
