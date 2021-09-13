@@ -1,8 +1,8 @@
 .orderDetails{
     margin-top: 20px;
-    margin-bottom: 20px;
     padding: 10px 20px;
     background-color: #fafafafa;
+    min-height: 100%;
 }
 .orderDetails > h2 {
     text-align: center;
@@ -42,13 +42,16 @@
     font-size: 1.2rem;
 }
 .orderDetails__summary {
-    font-size:3rem;
+    font-size:2rem;
     font-weight: 600;
 }
 
 @media screen and (max-width: 560px){
     .orderDetails{
         padding-top: 80px;
+    }
+    .orderDetails__summary{
+        font-size: 1.5rem;
     }
 
 }

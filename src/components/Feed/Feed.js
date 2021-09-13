@@ -22,9 +22,9 @@ function Feed() {
         <div className="feed__row">
           <Product
             id={index()}
-            title="Headphones"
-            picphoto="https://images-na.ssl-images-amazon.com/images/I/71ITEaodrZL._AC_SL1500_.jpg"
-            price={99}
+            title="Smart speaker with Alexa"
+            picphoto="https://media.very.co.uk/i/very/P6LTG_SQ1_0000000071_CHARCOAL_SLf?$300x400_retinamobilex2$"
+            price={100}
           />
           <Product
             id={index()}
@@ -42,21 +42,15 @@ function Feed() {
         <div className="feed__row">
           <Product
             id={index()}
-            title="Smart speaker with Alexa"
-            picphoto="https://media.very.co.uk/i/very/P6LTG_SQ1_0000000071_CHARCOAL_SLf?$300x400_retinamobilex2$"
-            price={100}
+            title="Telewizor Smart TV"
+            picphoto="https://images-na.ssl-images-amazon.com/images/I/71e0LNY9YeL._AC_SL1500_.jpg"
+            price={1000}
           />
           <Product
             id={index()}
             title="Wywrotka Volvo Ze Światłem I Dźwiękiem"
             picphoto="https://images-na.ssl-images-amazon.com/images/I/71e7WRVuoyL._AC_SL1500_.jpg"
             price={150}
-          />
-          <Product
-            id={index()}
-            title="Telewizor Smart TV"
-            picphoto="https://images-na.ssl-images-amazon.com/images/I/71e0LNY9YeL._AC_SL1500_.jpg"
-            price={1000}
           />
         </div>
         <div className="feed__row">

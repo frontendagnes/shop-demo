@@ -2,26 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     contents: []
-    // contents: [
-    //     {
-    //         id: "123",
-    //         title: "Camera",
-    //         picphoto: "https://images-na.ssl-images-amazon.com/images/I/71EzZHveM-L._AC_SL1500_.jpg",
-    //         price: 150
-    //     },        
-    //     {
-    //         id: "124",
-    //         title: "Coffy",
-    //         picphoto: "https://images-na.ssl-images-amazon.com/images/I/51eqU4jOrLL._AC_SL1199_.jpg",
-    //         price: 50
-    //     },
-    //     {
-    //         id: "125",
-    //         title: "Sound",
-    //         picphoto: "https://images-na.ssl-images-amazon.com/images/I/71ITEaodrZL._AC_SL1500_.jpg",
-    //         price: 100
-    //     }
-    // ]
 }
 
 export const basketSlice = createSlice({

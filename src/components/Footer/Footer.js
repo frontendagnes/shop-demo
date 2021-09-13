@@ -7,7 +7,7 @@ function Footer() {
     <div className="footer">
       <Link to="/">
         <div className="footer__left">
-          <img src={logoLight} alt="" />
+          <img src={logoLight} alt="Logo" title="Logo"/>
         </div>
       </Link>
       <div className="footer__right">by Agnieszka Kamińska</div>
