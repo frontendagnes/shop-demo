@@ -1,44 +1,51 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# SHOP DEMO
 
-## Available Scripts
+Demo sklepu internetowego, można złożyć zamówienie, zarejestrować się oraz zalogować. Na potrzeby aplikacji zamówienie mogą składać tylko osoby zarejestrowane. Po dokonaniu "zakupu" można podejrzeć listę zamówień oraz szczegóły każdego z zamówień. Poniżej dane do logowanie demo.
 
-In the project directory, you can run:
+e-mail: admin@admin.com
+pass: administrator
 
-### `yarn start`
+## Documentation
+Projekt został stworzone przez [create-react-app](https://github.com/facebook/create-react-app), w aplikacji zostały użyte następujące rozwiązania:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* [firebase](https://www.npmjs.com/package/firebase) - baza danych (proszę o podłączenie własnej bazy danych)
+* [redux](https://react-redux.js.org/) - przechowywanie stanu aplikacji
+* [material-ui](https://material-ui.com/) - grafiki w aplikacji
+* [moment](https://momentjs.com/) - tworzenie czasu
+* [react-router-dom](https://reactrouter.com/web/guides/quick-start) - nawigacja na stronie
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+instalowane z poziomu `npm`, standardowym poleceniem
+```javascript
+npm install 'nazwa-paczki'
+```
+## Installation
 
-### `yarn test`
+Po pobraniu aplikacji z poziomu folderu w którym znajdują się pliki projektu wpisujemy:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```javascript
+npm install
+```
 
-### `yarn build`
+w celu zainstalowania wszystkich zależności.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+później w celu uruchomienia projektu:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+```javascript
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Wszystkie pozostałe niezbędne informację znajdują się tutaj: [create-react-app](https://github.com/facebook/create-react-app).
 
-### `yarn eject`
+Żeby powyższe komendy zadziałały na komputerze musi być zainstalowany [node](https://nodejs.org/en/).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contribute
+* Source Code: https://github.com/zabula81/shop-demo
+* Issue Tracker: https://github.com/zabula81/shop-demo/issues
+* View: 
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Author
+Agnieszka Kamińska (agnieszka.kaminska@ksiegarnia.edu.pl)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
