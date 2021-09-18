@@ -50,11 +50,13 @@
     justify-content: space-around;
 }
 .login__buttons > button{
-    height: 50px;
     font-size: 1.5rem;
 }
 @media screen and (max-width: 650px)  {
     .login__container{
+        width: 100%;
+    }
+    .login__buttons{
         width: 100%;
     }
 }
