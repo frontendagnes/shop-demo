@@ -34,7 +34,6 @@ function Login() {
   };
 
   const onHanleLoginWithGoogle = () =>{
-    console.log("Login with google")
     auth
       .signInWithPopup(providerGoogle)
       .then(() => history.push("/"))
@@ -42,18 +41,13 @@ function Login() {
   }
 
   const onHanleLoginWithFB = () => {
-    console.log("Login with FB")
     auth
       .signInWithPopup(providerFB)
       .then(() => history.push("/"))
       .catch((error) => alert(error.message))
   }
   return (
-    <div className="login">
-      <div className="login__buttons">
-      <button onClick={onHanleLoginWithGoogle}>Login with Google</button>
-      <button onClick={onHanleLoginWithFB}>Login with Facebook</button>
-      </div>
+    <div className="login">    
       <div className="login__container">
         {error && <ValidationError text={error} />}
         <div className="login__top">
@@ -95,6 +89,10 @@ function Login() {
       </div>
       <div className="login__register">
         You do not have an account? Register <Link to="/register">here</Link>{" "}
+      </div>
+      <div className="login__buttons">
+      <button onClick={onHanleLoginWithGoogle}>Login with Google</button>
+      <button onClick={onHanleLoginWithFB}>Login with Facebook</button>
       </div>
     </div>
   );

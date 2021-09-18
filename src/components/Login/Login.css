@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
 }
+
 .login__container{
     display: flex;
     flex-direction: column;
@@ -42,7 +43,16 @@
     margin: 20px;
     border-radius: 10px;
 }
-
+.login__buttons{
+    padding: 20px 30px;
+    width:50%;
+    display: flex;
+    justify-content: space-around;
+}
+.login__buttons > button{
+    height: 50px;
+    font-size: 1.5rem;
+}
 @media screen and (max-width: 650px)  {
     .login__container{
         width: 100%;
