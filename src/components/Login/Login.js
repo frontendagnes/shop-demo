@@ -5,7 +5,7 @@ import TextField from "@material-ui/core/TextField";
 import ValidationError from "../ValidationError/ValidationError";
 
 import { Link, useHistory } from "react-router-dom";
-import { auth } from "../../app/utility/firebase";
+import { auth, providerGoogle, providerFB } from "../../app/utility/firebase";
 
 import { validateLogin } from "../../app/utility/Validations";
 
@@ -32,8 +32,28 @@ function Login() {
       .then(() => history.push("/"))
       .catch((error) => alert(error.message));
   };
+
+  const onHanleLoginWithGoogle = () =>{
+    console.log("Login with google")
+    auth
+      .signInWithPopup(providerGoogle)
+      .then(() => history.push("/"))
+      .catch((error) => alert(error.message))
+  }
+
+  const onHanleLoginWithFB = () => {
+    console.log("Login with FB")
+    auth
+      .signInWithPopup(providerFB)
+      .then(() => history.push("/"))
+      .catch((error) => alert(error.message))
+  }
   return (
     <div className="login">
+      <div className="login__buttons">
+      <button onClick={onHanleLoginWithGoogle}>Login with Google</button>
+      <button onClick={onHanleLoginWithFB}>Login with Facebook</button>
+      </div>
       <div className="login__container">
         {error && <ValidationError text={error} />}
         <div className="login__top">
