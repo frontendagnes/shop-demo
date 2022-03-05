@@ -40,8 +40,8 @@ Wszystkie pozostałe niezbędne informację znajdują się tutaj: [create-react-
 
 
 ## Contribute
-* Source Code: https://github.com/zabula81/shop-demo
-* Issue Tracker: https://github.com/zabula81/shop-demo/issues
+* Source Code: https://github.com/frontendagnes/shop-demo
+* Issue Tracker: https://github.com/frontendagens/shop-demo/issues
 * View: https://shop-a251f.web.app/
 
 ## Author
