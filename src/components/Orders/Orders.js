@@ -1,6 +1,6 @@
 import React from "react";
 import "./Orders.css";
-import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import Order from "../Order/Order";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../features/user/userSlice";

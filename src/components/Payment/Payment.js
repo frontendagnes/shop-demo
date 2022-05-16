@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Payment.css";
 import CheckoutProduct from "../CheckoutProduct/CheckoutProduct";
 
-import TextField from "@material-ui/core/TextField";
+import TextField from '@mui/material/TextField'
 import { useHistory } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import { selectUser } from "../../features/user/userSlice";

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import "./Login.css";
 import logoDark from "../../assets/logo-dark.png";
-import TextField from "@material-ui/core/TextField";
-import ValidationError from "../ValidationError/ValidationError";
-
 import { Link, useHistory } from "react-router-dom";
 import { auth, providerGoogle, providerFB } from "../../app/utility/firebase";
-
 import { validateLogin } from "../../app/utility/Validations";
+//mui
+import TextField from '@mui/material/TextField'
+// component
+import ValidationError from "../ValidationError/ValidationError";
 
 function Login() {
   const [email, setEmail] = useState("");

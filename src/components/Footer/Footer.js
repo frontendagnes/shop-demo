@@ -10,7 +10,7 @@ function Footer() {
           <img src={logoLight} alt="Logo" title="Logo"/>
         </div>
       </Link>
-      <div className="footer__right">by Agnieszka Kamińska</div>
+      <div className="footer__right">by <a href="https://frontend-agnes.pl" alt="frontend-agens" title="frontend-agens">frontend-agens</a></div>
     </div>
   );
 }

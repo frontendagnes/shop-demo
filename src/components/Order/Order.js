@@ -1,21 +1,15 @@
 import React from "react";
 import "./Order.css";
-import moment from "moment";
 import { Link } from "react-router-dom";
 
 function Order({ order }) {
-  let date = new Date();
-  let year = date.getFullYear();
-
   return (
     <li className="order">
       <div className="order__top">
         <Link to={`/order-details/${order.id}`}>
           <span className="order__idNumber">{order.id}</span>
         </Link>
-        <span>
-            {moment.unix(order.data.created).format(`MMMM Do ${year} h:mma`)}
-        </span>
+        <span>{new Date(order.data.created.seconds * 1000).toLocaleString("pl-PL")}</span>
       </div>
       <div className="order__bottom">
         <span>Summary: {order.data.amount}</span>

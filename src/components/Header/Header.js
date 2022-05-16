@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { selectUser } from "../../features/user/userSlice";
 import { selectBasket } from "../../features/basket/baksetSlice";
 import logoLight from "../../assets/logo-white.png";
-import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
+import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 
 import { auth } from "../../app/utility/firebase"
 

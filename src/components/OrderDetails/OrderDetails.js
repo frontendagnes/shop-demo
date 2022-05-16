@@ -1,28 +1,23 @@
 import React from "react";
 import "./OrderDetails.css";
 import { useParams } from "react-router-dom";
-import moment from "moment";
 import CheckoutProduct from "../CheckoutProduct/CheckoutProduct";
 function OrderDetails({ orders }) {
   let { orderId } = useParams();
 
-  let date = new Date();
-  let year = date.getFullYear();
   return (
     <div className="orderDetails">
       <h2>Order preview</h2>
       {orders
         .filter((item) => item.id === orderId)
         .map((item) => (
-          <div className="orderDetails__container">
+          <div className="orderDetails__container" key={item.id}>
             <div className="orderDetails__top">
               <span className="orderDetails__idNumber">{item.id}</span>
               <span>
                 <span>Created:</span>
                 <small>
-                  {moment
-                    .unix(item.data.created)
-                    .format(`MMMM Do ${year} h:mma`)}
+                  {new Date(item.data.created.seconds * 1000).toLocaleString("pl-PL")}
                 </small>
               </span>
             </div>

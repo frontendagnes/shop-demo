@@ -45,7 +45,7 @@ Wszystkie pozostałe niezbędne informację znajdują się tutaj: [create-react-
 * View: https://shop-a251f.web.app/
 
 ## Author
-Agnieszka Kamińska (agnieszka.kaminska@ksiegarnia.edu.pl)
+[frontend-agnes](https://frontend-agnes.pl)
 
 
 

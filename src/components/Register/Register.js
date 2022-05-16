@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Register.css";
-import TextField from "@material-ui/core/TextField";
+import TextField from '@mui/material/TextField'
 import logoDark from "../../assets/logo-dark.png";
 
 import { Link, useHistory } from "react-router-dom";
