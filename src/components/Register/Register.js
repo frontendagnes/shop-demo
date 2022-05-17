@@ -3,7 +3,7 @@ import "./Register.css";
 import TextField from '@mui/material/TextField'
 import logoDark from "../../assets/logo-dark.png";
 
-import { Link, useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../app/utility/firebase";
 import ValidationError from "../ValidationError/ValidationError";
 import { validateRegister } from "../../app/utility/Validations";
@@ -15,7 +15,7 @@ function Register() {
   const [error, setError] = useState(null);
   const [test, setTest] = useState("");
 
-  const history = useHistory();
+  const history = useNavigate();
 
   const onHandleRegister = (e) => {
     e.preventDefault();
@@ -34,7 +34,7 @@ function Register() {
         });
       })
       .then(() => {
-        history.push("/login");
+        history("/login");
       })
       .catch((error) => alert(error.message));
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Login.css";
 import logoDark from "../../assets/logo-dark.png";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth, providerGoogle, providerFB } from "../../app/utility/firebase";
 import { validateLogin } from "../../app/utility/Validations";
 //mui
@@ -16,7 +16,7 @@ function Login() {
 
   const [error, setError] = useState(null);
 
-  const history = useHistory();
+  const history = useNavigate();
 
   const onHandleSignIn = (e) => {
     e.preventDefault();
@@ -29,21 +29,21 @@ function Login() {
 
     auth
       .signInWithEmailAndPassword(email, password)
-      .then(() => history.push("/"))
+      .then(() => history("/"))
       .catch((error) => alert(error.message));
   };
 
   const onHanleLoginWithGoogle = () =>{
     auth
       .signInWithPopup(providerGoogle)
-      .then(() => history.push("/"))
+      .then(() => history("/"))
       .catch((error) => alert(error.message))
   }
 
   const onHanleLoginWithFB = () => {
     auth
       .signInWithPopup(providerFB)
-      .then(() => history.push("/"))
+      .then(() => history("/"))
       .catch((error) => alert(error.message))
   }
   return (

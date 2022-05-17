@@ -16,14 +16,16 @@
 }
 
 .orderDetails__top > span{
-    margin: 10px;
+    margin: 10px 0 10px 0;
     font-size: 1.5rem;
     font-weight: 600;
     width: 30%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     align-items: center;
+}
+.orderDetails__top > span > span{
+    margin-right: 10px;
 }
 .orderDetails__idNumber{
     font-size: 2rem;

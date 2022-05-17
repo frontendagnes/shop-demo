@@ -3,7 +3,7 @@ import "./Payment.css";
 import CheckoutProduct from "../CheckoutProduct/CheckoutProduct";
 
 import TextField from '@mui/material/TextField'
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import { selectUser } from "../../features/user/userSlice";
 import {
@@ -20,7 +20,7 @@ function Paymant() {
   const basket = useSelector(selectBasket);
 
   const dispatch = useDispatch()
-  const history = useHistory()
+  const history = useNavigate()
   const [street, setStreet] = useState("");
   const [town, setTown] = useState("");
   const [deliveryAdress, setDeliveryAdress] = useState(null);
@@ -62,7 +62,7 @@ function Paymant() {
       })
 
       dispatch(emptyBasket())
-      history.push("/orders")
+      history("/orders")
   };
   return (
     <div className="payment">

@@ -1,7 +1,7 @@
 import React from "react";
 import "./Summary.css";
 
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useSelector } from "react-redux";
 import {
   selectBasket,
@@ -12,10 +12,10 @@ import { selectUser } from "../../features/user/userSlice"
 function Summary({ hideButton }) {
   const basket = useSelector(selectBasket);
   const user = useSelector(selectUser)
-  const history = useHistory()
+  const history = useNavigate()
   const onHandleCashRegister = () => {
     if(user){
-      history.push("/payment")
+      history("/payment")
     } else{
       alert("You're not logged in")
     }

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./Checkout.css";
 import { useSelector } from "react-redux";
 import { selectBasket } from "../../features/basket/baksetSlice";
@@ -10,9 +10,7 @@ import Summary from "../Summary/Summary";
 function Checkout() {
   const basket = useSelector(selectBasket);
   const user = useSelector(selectUser);
-useEffect(() => {
-  console.log(basket)
-}, [basket])
+
   return (
     <div className="checkout">
       <div className="checkout__top">

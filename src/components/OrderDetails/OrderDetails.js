@@ -15,9 +15,9 @@ function OrderDetails({ orders }) {
             <div className="orderDetails__top">
               <span className="orderDetails__idNumber">{item.id}</span>
               <span>
-                <span>Created:</span>
+                <span>Created at</span>
                 <small>
-                  {new Date(item.data.created.seconds * 1000).toLocaleString("pl-PL")}
+                  {new Date(item.data?.created?.seconds * 1000).toLocaleString("pl-PL")}
                 </small>
               </span>
             </div>

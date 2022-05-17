@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import db, { auth } from "./app/utility/firebase";
 import { login, logout, selectUser } from "./features/user/userSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -51,46 +51,71 @@ function App() {
 
   return (
     <div className="app">
-      <Router>
-        <Switch>
-          <Route exact path="/orders">
-            <Header />
-            <Orders orders={orders} />
-            <Footer />
-          </Route>
-          <Route exact path="/order-details/:orderId">
-            <Header />
-            <OrderDetails orders={orders} />
-            <Footer />
-          </Route>
-          <Route exact path="/payment">
-            <Header />
-            <Paymant />
-            <Footer />
-          </Route>
-          <Route exact path="/login">
-            <Login />
-          </Route>
-          <Route exact path="/register">
-            <Register />
-          </Route>
-          <Route exact path="/checkout">
-            <Header />
-            <Checkout />
-            <Footer />
-          </Route>
-          <Route exact path="/">
-            <Header />
-            <Feed />
-            <Footer />
-          </Route>
-          <Route>
-            <Header />
-            <NoMatch />
-            <Footer />
-          </Route>
-        </Switch>
-      </Router>
+      <Routes>
+        <Route
+          path="/orders"
+          element={
+            <>
+              <Header />
+              <Orders orders={orders} />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/order-details/:orderId"
+          element={
+            <>
+              <Header />
+              <OrderDetails orders={orders} />
+              <Footer />
+            </>
+          }
+        />
+
+        <Route
+          path="/payment"
+          element={
+            <>
+              <Header />
+              <Paymant />
+              <Footer />
+            </>
+          }
+        />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route
+          path="/checkout"
+          element={
+            <>
+              <Header />
+              <Checkout />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/"
+          element={
+            <>
+              <Header />
+              <Feed />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <>
+              <Header />
+              <NoMatch />
+              <Footer />
+            </>
+          }
+        />
+      </Routes>
     </div>
   );
 }
