@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "./Login.css";
 import logoDark from "../../assets/logo-dark.png";
-import GoogleButton from "react-google-button";
-
+import { GoogleLoginButton } from "react-social-login-buttons";
 import { Link, useNavigate } from "react-router-dom";
 import {
   auth,
@@ -38,18 +37,12 @@ function Login() {
       .catch((error) => alert("SignIn error>>", error.message));
   };
 
-  const onHanleLoginWithGoogle = () => {
+  const onHandleLoginWithGoogle = () => {
     signInWithPopup(auth, providerGoogle)
       .then(() => history("/"))
       .catch((error) => alert("Login with google error", error.message));
   };
 
-  // const onHanleLoginWithFB = () => {
-  //   auth
-  //     .signInWithPopup(providerFB)
-  //     .then(() => history("/"))
-  //     .catch((error) => alert(error.message))
-  // }
   return (
     <div className="login">
       <div className="login__error">
@@ -94,7 +87,9 @@ function Login() {
       <div className="login__register">
         You do not have an account? Register <Link to="/register">here</Link>{" "}
       </div>
-      <GoogleButton onClick={onHanleLoginWithGoogle} type="light" />
+      <div className="login__buttons">
+        <GoogleLoginButton onClick={onHandleLoginWithGoogle} />
+      </div>
     </div>
   );
 }
