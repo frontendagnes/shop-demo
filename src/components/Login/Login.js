@@ -1,11 +1,18 @@
 import React, { useState } from "react";
 import "./Login.css";
 import logoDark from "../../assets/logo-dark.png";
+import GoogleButton from "react-google-button";
+
 import { Link, useNavigate } from "react-router-dom";
-import { auth, providerGoogle, providerFB } from "../../app/utility/firebase";
+import {
+  auth,
+  providerGoogle,
+  signInWithPopup,
+  signInWithEmailAndPassword,
+} from "../../app/utility/firebase";
 import { validateLogin } from "../../app/utility/Validations";
 //mui
-import TextField from '@mui/material/TextField'
+import TextField from "@mui/material/TextField";
 // component
 import ValidationError from "../ValidationError/ValidationError";
 
@@ -26,30 +33,29 @@ function Login() {
       setError(errMsg);
       return;
     }
-
-    auth
-      .signInWithEmailAndPassword(email, password)
+    signInWithEmailAndPassword(auth, email, password)
       .then(() => history("/"))
-      .catch((error) => alert(error.message));
+      .catch((error) => alert("SignIn error>>", error.message));
   };
 
-  const onHanleLoginWithGoogle = () =>{
-    auth
-      .signInWithPopup(providerGoogle)
+  const onHanleLoginWithGoogle = () => {
+    signInWithPopup(auth, providerGoogle)
       .then(() => history("/"))
-      .catch((error) => alert(error.message))
-  }
+      .catch((error) => alert("Login with google error", error.message));
+  };
 
-  const onHanleLoginWithFB = () => {
-    auth
-      .signInWithPopup(providerFB)
-      .then(() => history("/"))
-      .catch((error) => alert(error.message))
-  }
+  // const onHanleLoginWithFB = () => {
+  //   auth
+  //     .signInWithPopup(providerFB)
+  //     .then(() => history("/"))
+  //     .catch((error) => alert(error.message))
+  // }
   return (
-    <div className="login">    
-      <div className="login__container">
+    <div className="login">
+      <div className="login__error">
         {error && <ValidationError text={error} />}
+      </div>
+      <div className="login__container">
         <div className="login__top">
           <span>Log In</span>
           <Link to="/">
@@ -60,7 +66,6 @@ function Login() {
           <form>
             <TextField
               className="login__input"
-              id="outlined-basic"
               label="e-mail"
               variant="outlined"
               value={email}
@@ -68,7 +73,6 @@ function Login() {
             />
             <TextField
               className="login__input"
-              id="outlined-basic"
               label="password"
               variant="outlined"
               type="password"
@@ -90,10 +94,7 @@ function Login() {
       <div className="login__register">
         You do not have an account? Register <Link to="/register">here</Link>{" "}
       </div>
-      <div className="login__buttons">
-      <button onClick={onHanleLoginWithGoogle}>Login with Google</button>
-      <button onClick={onHanleLoginWithFB}>Login with Facebook</button>
-      </div>
+      <GoogleButton onClick={onHanleLoginWithGoogle} type="light" />
     </div>
   );
 }

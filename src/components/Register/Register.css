@@ -5,9 +5,10 @@
     justify-content: center;
     flex-direction: column;
 }
-.register  a{
-    color: #000000;
+.register__error{
+    height: 50px;
 }
+
 .register__container{
     display: flex;
     justify-content: center;

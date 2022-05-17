@@ -2,67 +2,75 @@ import React, { useState } from "react";
 import "./Payment.css";
 import CheckoutProduct from "../CheckoutProduct/CheckoutProduct";
 
-import TextField from '@mui/material/TextField'
+import TextField from "@mui/material/TextField";
 import { useNavigate } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import { selectUser } from "../../features/user/userSlice";
 import {
   selectBasket,
   getBasketTotal,
-  emptyBasket
+  emptyBasket,
 } from "../../features/basket/baksetSlice";
-import db from '../../app/utility/firebase'
-import { nanoid } from "nanoid"
-import firebase from "firebase";
+import db, { serverTimestamp, addDoc, doc, collection } from "../../app/utility/firebase";
 
 function Paymant() {
   const user = useSelector(selectUser);
   const basket = useSelector(selectBasket);
 
-  const dispatch = useDispatch()
-  const history = useNavigate()
+  const dispatch = useDispatch();
+  const history = useNavigate();
   const [street, setStreet] = useState("");
   const [town, setTown] = useState("");
   const [deliveryAdress, setDeliveryAdress] = useState(null);
 
-  const index = () => {
-    return `Order-${nanoid(10)}`
-  }
-
   const onHandleSaveAdress = () => {
-    if(street && town){
-    setDeliveryAdress({
-      name: user?.displayName,
-      email: user?.email,
-      street: street,
-      town: town,
-    });
-  }else {alert("Enter Delivery Adress")}
+    if (street && town) {
+      setDeliveryAdress({
+        name: user?.displayName,
+        email: user?.email,
+        street: street,
+        town: town,
+      });
+    } else {
+      alert("Enter Delivery Adress");
+    }
   };
 
   const onHandleEditAdress = () => {
     setDeliveryAdress(null);
   };
 
-  const onHandleOrder = (e) => {
-    e.preventDefault()
-    if(!deliveryAdress){
-      alert("Confirm the address")
-      return
+  const onHandleOrder = async (e) => {
+    e.preventDefault();
+    if (!deliveryAdress) {
+      alert("Confirm the address");
+      return;
     }
-    db.collection("users")
-      .doc(user?.uid)
-      .collection("orders")
-      .doc(index())
-      .set({
-        user: deliveryAdress,
-        basket: basket,
-        amount: getBasketTotal(basket),
-        created: firebase.firestore.FieldValue.serverTimestamp(),
-      })
 
-      dispatch(emptyBasket())
-      history("/orders")
+    const docRef = doc(db, "users", user.uid);
+    const ref = collection(docRef, "orders");
+
+    await addDoc(ref, {
+      user: deliveryAdress,
+      basket: basket,
+      amount: getBasketTotal(basket),
+      created: serverTimestamp(),
+    })
+      .then(() => {
+        dispatch(emptyBasket());
+        history("/orders");
+      })
+      .catch((error) => console.log("Error send order>>", error.message));
+    // db.collection("users")
+    //   .doc(user?.uid)
+    //   .collection("orders")
+    //   .doc(index())
+    //   .set({
+    //     user: deliveryAdress,
+    //     basket: basket,
+    //     amount: getBasketTotal(basket),
+    //     created: serverTimestamp(),
+    //   })
   };
   return (
     <div className="payment">
@@ -134,7 +142,12 @@ function Paymant() {
         </div>
         <div className="payment__summary">
           <span>Summary {getBasketTotal(basket)} PLN</span>
-          <button onClick={onHandleOrder} disabled={basket.length === 0 || !user ? true : false}>Buy now</button>
+          <button
+            onClick={onHandleOrder}
+            disabled={basket.length === 0 || !user ? true : false}
+          >
+            Buy now
+          </button>
         </div>
       </div>
     </div>

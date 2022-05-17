@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import "./Register.css";
-import TextField from '@mui/material/TextField'
+import TextField from "@mui/material/TextField";
 import logoDark from "../../assets/logo-dark.png";
 
 import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../../app/utility/firebase";
+import {
+  auth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from "../../app/utility/firebase";
 import ValidationError from "../ValidationError/ValidationError";
 import { validateRegister } from "../../app/utility/Validations";
 
@@ -26,27 +30,27 @@ function Register() {
       return;
     }
 
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then(function (result) {
-        return result.user.updateProfile({
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        updateProfile(auth.currentUser, {
           displayName: name,
         });
       })
       .then(() => {
         history("/login");
+        setName("");
+        setEmail("");
+        setPassword("");
       })
-      .catch((error) => alert(error.message));
-
-    setName("");
-    setEmail("");
-    setPassword("");
+      .catch((error) => alert("Create account error>>", error.message));
   };
 
   return (
     <div className="register">
-      <div className="register__container">
+      <div className="register__error">
         {error && <ValidationError text={error} />}
+      </div>
+      <div className="register__container">
         <div className="register__top">
           <span>Register</span>
           <Link to="/">
@@ -56,7 +60,6 @@ function Register() {
         <form className="register__form">
           <TextField
             className="register__input"
-            id="outlined-basic"
             label="enter your first and last name"
             variant="outlined"
             autoComplete="off"
@@ -65,7 +68,6 @@ function Register() {
           />
           <TextField
             className="register__input"
-            id="outlined-basic"
             label="enter your email"
             variant="outlined"
             autoComplete="off"
@@ -74,7 +76,6 @@ function Register() {
           />
           <TextField
             className="register__input"
-            id="outlined-basic"
             label="enter password"
             variant="outlined"
             type="password"

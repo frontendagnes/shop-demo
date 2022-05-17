@@ -2,7 +2,15 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 
 import { Routes, Route } from "react-router-dom";
-import db, { auth } from "./app/utility/firebase";
+import db, {
+  auth,
+  onAuthStateChanged,
+  onSnapshot,
+  collection,
+  doc,
+  orderBy,
+  query,
+} from "./app/utility/firebase";
 import { login, logout, selectUser } from "./features/user/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -17,13 +25,14 @@ import Orders from "./components/Orders/Orders";
 import OrderDetails from "./components/OrderDetails/OrderDetails";
 import NoMatch from "./components/NoMatch/NoMatch";
 import Footer from "./components/Footer/Footer";
+
 function App() {
   const [orders, setOrders] = useState([]);
 
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   useEffect(() => {
-    auth.onAuthStateChanged((authUser) => {
+    onAuthStateChanged(auth, (authUser) => {
       if (authUser) {
         dispatch(login(authUser));
       } else {
@@ -34,19 +43,22 @@ function App() {
 
   useEffect(() => {
     if (user) {
-      db.collection("users")
-        .doc(user.uid)
-        .collection("orders")
-        .orderBy("created", "desc")
-        .onSnapshot((snapshot) => {
-          setOrders(
-            snapshot.docs.map((doc) => ({
-              id: doc.id,
-              data: doc.data(),
-            }))
-          );
-        });
-    } else setOrders([]);
+      const docRef = doc(db, "users", user.uid)
+      const ref  = collection(docRef, "orders")
+      const sortRef = query(ref, orderBy("created", "desc"))
+
+      const unsuscribe = onSnapshot(sortRef, (snapshot) => {
+        setOrders(
+          snapshot.docs.map((doc) =>({
+            id: doc.id,
+            data: doc.data()
+          }))
+        )
+      })
+      return() =>{
+        unsuscribe()
+      }
+    }
   }, [user]);
 
   return (
