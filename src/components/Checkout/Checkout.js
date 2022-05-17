@@ -21,7 +21,7 @@ function Checkout() {
             : `There are ${basket.length} items in your basket`}
         </h2>
       </div>
-      {basket.length !== 0 && <Summary hideButton/>}
+      {basket.length !== 0 ? <Summary hideButton/> : null}
       <div className="chekout__products">
         {basket.map((item, index) => (
           <CheckoutProduct
@@ -33,7 +33,7 @@ function Checkout() {
           />
         ))}
       </div>
-      {basket.length !== 0 && <Summary />}
+      {basket.length !== 0 ? <Summary /> : null}
     </div>
   );
 }

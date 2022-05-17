@@ -31,6 +31,7 @@ function App() {
 
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
+  
   useEffect(() => {
     onAuthStateChanged(auth, (authUser) => {
       if (authUser) {
