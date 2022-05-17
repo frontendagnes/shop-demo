@@ -19,7 +19,7 @@ function CheckoutProduct({ id, title, picphoto, price, hideButton }) {
       />
       <div className="checkoutProduct__bottom">
         <div className="checkoutProduct__title">{title}</div>
-        <div className="checkoutProduct__price">Price: {price}</div>
+        <div className="checkoutProduct__price">Price: {price} PLN</div>
         {!hideButton &&
         <button className="checkoutProduct__button" onClick={onHandleRemoveFromBasket}>Remove From Basket</button>
         }

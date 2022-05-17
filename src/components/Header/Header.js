@@ -32,7 +32,7 @@ function Header() {
           </Link>
         </div>
         <div className="header__options">
-          <div className="header__option" onClick={user && onHandleLogout}>
+          <div className="header__option" onClick={user ? onHandleLogout : null}>
             <small className="header__optionOne">
               Hello, {user ? user.displayName : "Guest"}
             </small>

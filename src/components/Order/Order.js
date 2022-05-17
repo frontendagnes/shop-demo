@@ -12,7 +12,7 @@ function Order({ order }) {
         <span>{new Date(order.data?.created?.seconds * 1000).toLocaleString("pl-PL")}</span>
       </div>
       <div className="order__bottom">
-        <span>Summary: {order.data.amount}</span>
+        <span>Summary: {order.data.amount} PLN</span>
       </div>
     </li>
   );

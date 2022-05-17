@@ -43,7 +43,7 @@ function OrderDetails({ orders }) {
                 <p>{item.data.user?.email}</p>
               </div>
               <div className="orderDetails__summary">
-                Summary: {item.data.amount}
+                Summary: {item.data.amount} PLN
               </div>
             </div>
           </div>
